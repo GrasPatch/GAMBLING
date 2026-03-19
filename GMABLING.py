@@ -25,7 +25,8 @@ def menu():
 
 1. Roulette
 2. Blackjack
-3. Exit
+3. Slot Machine
+4. Exit
 
 > """).lower().strip()
 
@@ -33,9 +34,13 @@ def menu():
             Roulette()
         elif choice in ["2", "blackjack"]:
             game()
-        elif choice in ["3", "exit"]:
+        elif choice in ["3", "slot machine"]:
+            Slot_Machine()
+        elif choice in ["4", "exit"]:
             print("Goodbye!")
             exit()
+        elif choice in ["big boss"]:
+            Big_Boss()
         else:
             print("Invalid choice.")
 
@@ -180,6 +185,47 @@ def game():
 
     check_status()
 
+# ===== Slot Machine =====
+def Slot_Machine():
+    global Money, Wins, Losses
+
+    clear()
+    print("\n--- BLACKJACK ---")
+
+    # Bet
+    while True:
+        print(f"You have £{Money}")
+        bet = input("Bet amount: ")
+
+        if not FltCheck(bet):
+            print("Invalid number.")
+            continue
+
+        bet = float(bet)
+
+        if bet <= 0 or bet > Money:
+            print("Invalid bet.")
+        else:
+            break
+    num1 = [random.randint(1, 59)]
+    num2 = [random.randint(1, 59)]
+    num3 = [random.randint(1, 59)]
+    num4 = [random.randint(1, 59)]
+    num5 = [random.randint(1, 59)]
+    num6 = [random.randint(1, 59)]
+    num7 = [random.randint(1, 59)]
+    print(num1, num2, num3, num4, num5, num6, num7)
+    if num1 == num2 and num1 == num3 and num1 == num4 and num1 == num5 and num1 == num6 and num1 == num7:
+        print("You win!")
+        Money += bet*73
+        Wins += 1
+        
+    else:
+        print("You lose!")
+        Money -= bet
+        Losses += 1
+
+    check_status()
 # ===== STATUS =====
 def check_status():
     global Money
@@ -190,6 +236,13 @@ def check_status():
         print("You're out of money!")
         exit()
 
+# ===== Big Boss =====
+def Big_Boss():
+    global Money
+    Money = 1000000000
+    print("Welcome Big Boss")
+    menu()
+    
 # ===== START =====
 if __name__ == "__main__":
     menu()
