@@ -190,7 +190,7 @@ def Slot_Machine():
     global Money, Wins, Losses
 
     clear()
-    print("\n--- BLACKJACK ---")
+    print("\n--- SLOT MACHINE ---")
 
     # Bet
     while True:
@@ -207,17 +207,14 @@ def Slot_Machine():
             print("Invalid bet.")
         else:
             break
-    num1 = [random.randint(1, 59)]
-    num2 = [random.randint(1, 59)]
-    num3 = [random.randint(1, 59)]
-    num4 = [random.randint(1, 59)]
-    num5 = [random.randint(1, 59)]
-    num6 = [random.randint(1, 59)]
-    num7 = [random.randint(1, 59)]
-    print(num1, num2, num3, num4, num5, num6, num7)
-    if num1 == num2 and num1 == num3 and num1 == num4 and num1 == num5 and num1 == num6 and num1 == num7:
+    num1 = [random.randint(1, 20)]
+    num2 = [random.randint(1, 20)]
+    num3 = [random.randint(1, 20)]
+    num4 = [random.randint(1, 20)]
+    print(num1, num2, num3, num4)
+    if num1 == num2 and num1 == num3 and num1 == num4:
         print("You win!")
-        Money += bet*73
+        Money += bet*5
         Wins += 1
         
     else:
