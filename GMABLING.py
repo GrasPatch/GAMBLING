@@ -214,7 +214,7 @@ def Slot_Machine():
     print(num1, num2, num3, num4)
     if num1 == num2 and num1 == num3 and num1 == num4:
         print("You win!")
-        Money += bet*5
+        Money += bet*35
         Wins += 1
         
     else:
